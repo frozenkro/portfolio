@@ -1,0 +1,28 @@
+{{define "content"}}
+<section class="contact-header">
+    <h1 class="page-title">CONTACT</h1>
+    <p class="page-subtitle">hmu.</p>
+</section>
+
+<div class="contact-grid">
+    <div class="contact-card">
+        <h3>EMAIL</h3>
+        <a href="mailto:you@example.com">you@example.com</a>
+    </div>
+    <div class="contact-card">
+        <h3>GITHUB</h3>
+        <a href="https://github.com/yourusername">github.com/yourusername</a>
+    </div>
+    <div class="contact-card">
+        <h3>LINKEDIN</h3>
+        <a href="https://linkedin.com/in/yourusername">linkedin.com/in/yourusername</a>
+    </div>
+</div>
+
+<form class="contact-form" hx-post="/contact" hx-swap="innerHTML">
+    <input type="text" name="name" placeholder="NAME" required>
+    <input type="email" name="email" placeholder="EMAIL" required>
+    <textarea name="message" placeholder="SAY SOMETHING" rows="5" required></textarea>
+    <button type="submit" class="btn btn-accent">SEND IT</button>
+</form>
+{{end}}

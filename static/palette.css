@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+:root {
+  /* CORE BACKGROUNDS */
+  --paper-white: #FCFCF0;
+  --bone:        #F5F1E8;
+
+  /* FEATURE COLORS */
+  --yellow:      #FFE600;
+  --hot-pink:   #FF5FA2;
+  --turquoise:  #7EE0D6;
+  --tangerine:  #FF7A29;
+  --lavender:   #C9B6FF;
+  --light-blue: #6FAFC8;
+
+  /* DARKS (borders, text, blocks) */
+  --black:  #0A0A0A;
+  --slate-deep: #1F2233;
+  --slate-deep-trs: #1F223399;
+
+  /* NEUTRAL SUPPORT */
+  --concrete:   #D9D6CF;
+  --olive:      #9DA87D;
+
+  /* SHADOWS */
+  --shadow-sm: 4px 4px 0 var(--black);
+  --shadow-md: 6px 6px 0 var(--black);
+  --shadow-lg: 8px 8px 0 var(--black);
+
+  /* BORDERS */
+  --border:    1px solid var(--black);
+  --border-thick: 4px solid var(--black);
+
+  /* FONTS */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'JetBrains Mono', monospace;
+}
+

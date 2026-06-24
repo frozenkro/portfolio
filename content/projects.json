@@ -1,0 +1,26 @@
+[
+    {
+        "title": "dirtie-srv",
+        "description": "Go backend for IoT sensor data collection on Raspberry Pi k3s cluster. MQTT ingestion, TimescaleDB storage, Grafana dashboards.",
+        "tags": ["Go", "k3s", "MQTT", "IoT"],
+        "url": "",
+        "repo": "https://github.com/yourusername/dirtie-srv",
+        "featured": true
+    },
+    {
+        "title": "Project Two",
+        "description": "Short description of what this is and why it's cool. Replace this placeholder.",
+        "tags": ["Tag1", "Tag2"],
+        "url": "https://example.com",
+        "repo": "https://github.com/yourusername/project-two",
+        "featured": false
+    },
+    {
+        "title": "Project Three",
+        "description": "Another placeholder. Fill in with real project data.",
+        "tags": ["Tag1", "Tag2"],
+        "url": "",
+        "repo": "",
+        "featured": false
+    }
+]
