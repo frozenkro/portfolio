@@ -9,23 +9,9 @@
 <body>
   <div class="bg-texture">
   </div>
-  <div class="content">
-    <header>
-      <a href="/" class="logo">KALEB OLSON</a>
-    </header>
-    <div class="panel c-panel">
-      <nav class="navcol">
-        <a href="/">Home</a>
-        <a href="/projects">Projects</a>
-        <a href="/contact">Contact</a>
-      </nav>
-      <main>
-        {{block "content" .}}{{end}}
-      </main>
-    </div>
-    <footer class="footer">
-      <p>© 2026 — Built with Go, plain CSS, and questionable taste.</p>
-    </footer>
-  </div>
+  {{block "content" .}}{{end}}
+  <footer class="footer">
+    <p>© 2026 Kaleb Olson.<br/>Built with Go, plain CSS, and questionable taste.</p>
+  </footer>
 </body>
 </html>{{end}}

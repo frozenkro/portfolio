@@ -14,3 +14,5 @@ var contentFS fs.FS = os.DirFS(".")
 var staticFS fs.FS = os.DirFS(".")
 
 var templateFS fs.FS = os.DirFS(".")
+
+var imageFS fs.FS = os.DirFS(".")

@@ -42,8 +42,13 @@ func getTemplateFS() fs.FS {
 func renderTemplate(w http.ResponseWriter, name string, data interface{}) {
 	tmplFS := getTemplateFS()
 	tmpl := template.New("base.html")
+	var err error
 
-	tmpl, err := tmpl.ParseFS(tmplFS, "base.html", name)
+	if name == "index.html" {
+		tmpl, err = tmpl.ParseFS(tmplFS, "base.html", name)
+	} else {
+		tmpl, err = tmpl.ParseFS(tmplFS, "base.html", "contentPane.html", name)
+	}
 	if err != nil {
 		http.Error(w, "template parse error", http.StatusInternalServerError)
 		log.Printf("template parse error: %v", err)
@@ -92,6 +97,9 @@ func main() {
 
 	staticSub, _ := fs.Sub(staticFS, "static")
 	mux.Handle("GET /static/", http.StripPrefix("/static/", http.FileServer(http.FS(staticSub))))
+
+	imagesSub, _ := fs.Sub(imageFS, "images")
+	mux.Handle("GET /images/", http.StripPrefix("/images/", http.FileServer(http.FS(imagesSub))))
 
 	mux.HandleFunc("GET /", indexHandler)
 	mux.HandleFunc("GET /projects", projectsHandler)

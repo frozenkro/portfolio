@@ -1,17 +1,34 @@
 {{define "content"}}
-<section class="hero">
-    <div class="hero-content">
-        <h1 class="hero-title">KALEB OLSON</h1>
-        <p class="hero-subtitle">Developer · Tinkerer · Problem Solver</p>
-        <a href="/contact" class="btn btn-accent">LET'S CHAT</a>
-    </div>
-    <div class="stamp">Repeatable!</div>
-</section>
 
-<section class="blurb">
-    <h2>WHO?</h2>
-    <p>Full Stack Engineer with a DevOps focus.</p>
-    <h2>WHY?</h2>
-    <p>Here for the love of the game. Talk to me about build pipelines, managing environments, self hosting, or neovim!</p>
-</section>
+<div class="content home-content">
+
+  <section class="hero">
+      <div class="hero-content panel">
+          <h1 class="hero-title">KALEB OLSON</h1>
+          <p class="hero-subtitle">Developer · Tinkerer · Problem Solver</p>
+          <a href="/contact" class="btn btn-contact">LET'S CHAT</a>
+      </div>
+      <img class="portrait" src="/images/kaleb-cartoon.png" />
+  </section>
+
+  <!-- <section class="blurb panel"> -->
+  <!--     <h2>WHO?</h2> -->
+  <!--     <p>Full Stack Engineer with a DevOps focus.</p> -->
+  <!--     <h2>WHY?</h2> -->
+  <!--     <p>Here for the love of the game. Talk to me about build pipelines, managing environments, self hosting, or neovim!</p> -->
+  <!-- </section> -->
+
+  <div class="main-button-row">
+    <button class="btn main-button">PROJECTS</button>
+    <button class="btn main-button">SKILLS</button>
+    <button class="btn main-button">EXPERIENCE</button>
+  </div>
+</div>
+
+  <div class="stamp-layer">
+    <span class="starburst stamp stamp-1">Modular!</span>
+    <span class="blob stamp stamp-2">Repeatable!</span>
+    <span class="wave-divider stamp stamp-3">Scalable!</span>
+    <span class="stamp stamp-4">Declarative!</span>
+  </div>
 {{end}}

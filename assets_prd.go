@@ -13,3 +13,6 @@ var staticFS embed.FS
 
 //go:embed all:templates
 var templateFS embed.FS
+
+//go:embed all:images
+var imageFS embed.FS

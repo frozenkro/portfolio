@@ -32,6 +32,11 @@ h1 {
 
 .navcol>a {
   width: 8em;
+  text-decoration: none;
+}
+
+.divider {
+  width: 100%;
 }
 
 .content {
@@ -45,14 +50,68 @@ h1 {
   flex-direction: row;
 }
 
+.hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .hero-content {
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-heading);
 }
 
 .panel {
   background-color: var(--bone);
   box-shadow: var(--shadow-sm);
+  height: fit-content;
+  padding: 1em;
 }
+
+.main-button-row {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.btn {
+  background-color: var(--concrete);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  border: none;
+  width: fit-content;
+  padding: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.main-button {
+  padding: 2em;
+  margin: 0 3em;
+  width: 200px;
+  font-size: 20px;
+}
+
+.btn:hover {
+  background-color: #BDB9B2;
+}
+
+.btn:active {
+  position: relative;
+  top: 4px;
+  left: 4px;
+  background-color: #B2AEA7;
+  box-shadow: none;
+}
+
+.btn-contact {
+  margin-top: 1em;
+}
+
 
 .bg-texture {
   position: absolute;
@@ -66,4 +125,91 @@ h1 {
   background-size: 8px 8px;
   transform: rotate(8deg);
   z-index: -1;
+}
+
+.portrait {
+  height: 300px;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10vh;
+}
+
+.blob {
+  width: 140px;
+  height: 140px;
+  background: var(--lavender);
+
+  /* Elliptical 8-value border-radius makes an organic blob */
+  border-radius: 58% 42% 40% 60% / 50% 60% 40% 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* A scalable CSS starburst using clip-path */
+.starburst {
+  width: 150px;
+  aspect-ratio: 1;
+  background: var(--hot-pink);
+  /* Alternate inner/outer points around the circle for spiky edges */
+  clip-path: polygon(
+    50% 0%,
+    56% 14%,
+    68% 6%,
+    60% 24%,
+    80% 20%,
+    64% 36%,
+    100% 50%,
+    64% 64%,
+    80% 80%,
+    60% 76%,
+    68% 94%,
+    56% 86%,
+    50% 100%,
+    44% 86%,
+    32% 94%,
+    40% 76%,
+    20% 80%,
+    36% 64%,
+    0% 50%,
+    36% 36%,
+    20% 20%,
+    40% 24%,
+    32% 6%,
+    44% 14%
+  );
+  /* Center the block if needed */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wave-divider {
+  width: 100%;
+  height: 2em;
+  padding: 1em;
+  background: var(--turquoise); /* divider color (CSS variable or hex) */
+  /* Bottom wave made from a polygon approximation */
+  clip-path: polygon(
+    0 0, 100% 0,
+    100% 70%, 95% 74%, 90% 78%, 85% 74%, 80% 70%,
+    75% 66%, 70% 62%, 65% 66%, 60% 70%,
+    55% 74%, 50% 78%, 45% 74%, 40% 70%,
+    35% 66%, 30% 62%, 25% 66%, 20% 70%,
+    15% 74%, 10% 78%, 5% 74%, 0 70%
+  );
+}
+
+/* Optional: center the divider block itself */
+.wave-divider.is-centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
 }

@@ -1,0 +1,14 @@
+  {{define "content" .}}
+  <div class="content">
+    <div class="panel c-panel">
+      <nav class="navcol">
+        <a href="/">Home</a>
+        <a href="/projects">Projects</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <main>
+        {{block "subContent" .}}{{end}}
+      </main>
+    </div>
+  </div>
+  {{end}}
