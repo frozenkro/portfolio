@@ -7,9 +7,13 @@
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <div class="bg-texture">
+  <div class="bg">
+    <div class="bg-texture"></div>
+    <div class="bg-glass"></div>
   </div>
+  <main class="content-wrap">
   {{block "content" .}}{{end}}
+  </main>
   <footer class="footer">
     <p>© 2026 Kaleb Olson.<br/>Built with Go, plain CSS, and questionable taste.</p>
   </footer>

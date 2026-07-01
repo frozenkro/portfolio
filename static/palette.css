@@ -22,6 +22,7 @@
   /* NEUTRAL SUPPORT */
   --concrete:   #D9D6CF;
   --olive:      #9DA87D;
+  --frosted-glass: rgba(255,255,255,0.35);
 
   /* SHADOWS */
   --shadow-sm: 4px 4px 0 var(--black);

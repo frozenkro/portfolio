@@ -11,6 +11,13 @@ body {
   color: var(--black);
   line-height: 1.6;
   background-color: var(--yellow);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrap {
+  flex: 1;
 }
 
 a {
@@ -54,6 +61,7 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 10vh;
 }
 
 .hero-content {
@@ -112,6 +120,13 @@ h1 {
   margin-top: 1em;
 }
 
+.bg {
+  overflow: hidden;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: -50;
+}
 
 .bg-texture {
   position: absolute;
@@ -124,7 +139,18 @@ h1 {
   );
   background-size: 8px 8px;
   transform: rotate(8deg);
-  z-index: -1;
+  z-index: -100;
+}
+
+.bg-glass {
+  background-color: var(--frosted-glass); 
+  width: 20vw;
+  height: 98vh;
+  position: absolute;
+  border-radius: 2em;
+  z-index: -51;
+  top: 5vh;
+  left: 15vw;
 }
 
 .portrait {
@@ -134,7 +160,6 @@ h1 {
 .home-content {
   display: flex;
   flex-direction: column;
-  margin-top: 10vh;
 }
 
 .blob {
@@ -154,18 +179,18 @@ h1 {
 
 /* A scalable CSS starburst using clip-path */
 .starburst {
-  width: 150px;
-  aspect-ratio: 1;
+  width: 200px;
+  aspect-ratio: 4;
   background: var(--hot-pink);
   /* Alternate inner/outer points around the circle for spiky edges */
   clip-path: polygon(
     50% 0%,
-    56% 14%,
+    56% 20%,
     68% 6%,
-    60% 24%,
-    80% 20%,
-    64% 36%,
-    100% 50%,
+    70% 24%,
+    73% 20%,
+    76% 36%,
+    80% 58%,
     64% 64%,
     80% 80%,
     60% 76%,
