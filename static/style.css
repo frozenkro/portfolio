@@ -196,23 +196,76 @@ h1 {
   align-items: center;
 }
 
-.stamp {
-  position: absolute;
-  font-family: var(--font-stamp);
+.banner {
+  width: 8em;
+  height: 8em;
+  padding: 1em;
+  clip-path: polygon(
+    0 30%, 5% 26%, 10% 22%, 15% 26%, 20% 30%, 25% 34%, 
+    30% 38%, 35% 34%, 40% 30%, 45% 26%, 50% 22%, 55% 26%, 
+    60% 30%, 65% 34%, 70% 38%, 75% 34%, 80% 30%, 85% 26%, 
+    90% 22%, 95% 26%, 100% 30%,
+    100% 70%, 95% 74%, 90% 78%, 85% 74%, 80% 70%, 75% 66%, 
+    70% 62%, 65% 66%, 60% 70%, 55% 74%, 50% 78%, 45% 74%, 
+    40% 70%, 35% 66%, 30% 62%, 25% 66%, 20% 70%, 15% 74%, 
+    10% 78%, 5% 74%, 0 70%
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.stamp-1 {
+.blob {
   width: 120px;
   height: 100px;
-  background: var(--lavender);
-  top: 26vh;
-  left: 38vw;
 
   border-radius: 58% 42% 40% 60% / 50% 60% 40% 50%;
 
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.quad {
+  width: 200px;
+  height: 40px;
+
+  clip-path: polygon(
+    0 15%, 80% 0, 100% 100%, 8% 97%
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stamp {
+  position: absolute;
+  font-family: var(--font-stamp);
+  cursor: pointer;
+  animation: wobble 4s ease-in-out infinite;
+}
+
+.stamp:hover {
+
+}
+
+.stamp-1 { animation-delay: 0s; }
+.stamp-2 { animation-delay: 1.2s; }
+.stamp-3 { animation-delay: 2.4s; }
+.stamp-4 { animation-delay: 3.6s; }
+
+@keyframes wobble {
+  0% { transform: rotate(1.5deg); }
+  50% { transform: rotate(-1.5deg); }
+  100% { transform: rotate(1.5deg); }
+}
+
+.stamp-1 {
+  background: var(--lavender);
+  top: 26vh;
+  left: 38vw;
 }
 
 .stamp-2 {
@@ -223,68 +276,11 @@ h1 {
 .stamp-3 {
   top: 35vh;
   left: 13vw;
-  width: 8em;
-  height: 2.5em;
-  padding: 1em;
   background: var(--turquoise);
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 70%,
-    95% 74%,
-    90% 78%,
-    85% 74%,
-    80% 70%,
-    75% 66%,
-    70% 62%,
-    65% 66%,
-    60% 70%,
-    55% 74%,
-    50% 78%,
-    45% 74%,
-    40% 70%,
-    35% 66%,
-    30% 62%,
-    25% 66%,
-    20% 70%,
-    15% 74%,
-    10% 78%,
-    5% 74%,
-    0 70%
-  );
 }
 
 .stamp-4 {
   top: 35vh;
   right: 45vw;
-  width: 8em;
-  height: 2.5em;
-  padding: 1em;
-  background: var(--turquoise);
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 70%,
-    95% 74%,
-    90% 78%,
-    85% 74%,
-    80% 70%,
-    75% 66%,
-    70% 62%,
-    65% 66%,
-    60% 70%,
-    55% 74%,
-    50% 78%,
-    45% 74%,
-    40% 70%,
-    35% 66%,
-    30% 62%,
-    25% 66%,
-    20% 70%,
-    15% 74%,
-    10% 78%,
-    5% 74%,
-    0 70%
-  );
+  background: var(--tangerine);
 }
-
