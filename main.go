@@ -45,9 +45,9 @@ func renderTemplate(w http.ResponseWriter, name string, data interface{}) {
 	var err error
 
 	if name == "index.html" {
-		tmpl, err = tmpl.ParseFS(tmplFS, "base.html", name)
+		tmpl, err = tmpl.ParseFS(tmplFS, "base.html", "spiral.html", name)
 	} else {
-		tmpl, err = tmpl.ParseFS(tmplFS, "base.html", "contentPane.html", name)
+		tmpl, err = tmpl.ParseFS(tmplFS, "base.html", "spiral.html", "contentPane.html", name)
 	}
 	if err != nil {
 		http.Error(w, "template parse error", http.StatusInternalServerError)
@@ -62,6 +62,12 @@ func renderTemplate(w http.ResponseWriter, name string, data interface{}) {
 type PageData struct {
 	Title    string
 	Projects []Project
+	Circles  []BrokenCircle
+}
+
+type BrokenCircle struct {
+	Diameter string
+	Rotate int
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
@@ -72,6 +78,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "index.html", PageData{
 		Title:    "Home",
 		Projects: projects,
+		Circles: getCircles(),
 	})
 }
 
@@ -83,13 +90,30 @@ func projectsHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "projects.html", PageData{
 		Title:    "Projects",
 		Projects: projects,
+		Circles: getCircles(),
 	})
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "contact.html", PageData{
 		Title: "Contact",
+		Circles: getCircles(),
 	})
+}
+
+func getCircles() []BrokenCircle {
+	return []BrokenCircle{
+		{Diameter:"100",Rotate:-90},
+		{Diameter:"90",Rotate:-120},
+		{Diameter:"80",Rotate:-150},
+		{Diameter:"70",Rotate:180},
+		{Diameter:"60",Rotate:150},
+		{Diameter:"50",Rotate:120},
+		{Diameter:"40",Rotate:90},
+		{Diameter:"30",Rotate:60},
+		{Diameter:"20",Rotate:30},
+		{Diameter:"10",Rotate:0},
+	}
 }
 
 func main() {

@@ -1,0 +1,16 @@
+{{define "spiral"}}
+  <div class="bg-spiral">
+    {{ range .Circles }}
+    <svg viewBox="0 0 100 100" class="broken-circle" style="
+      width:{{.Diameter}}px;
+      height:{{.Diameter}}px;
+      top:calc(8vh - calc({{.Diameter}}px/2));
+      right: calc(10px - calc({{.Diameter}}px/2));
+      ">
+      <circle cx="50" cy="50" r="45" fill="none" stroke="rgb(0,0,0,0.6)" stroke-width="1"
+        stroke-dasharray="260 28" stroke-dashoffset="-14"
+                                  transform="rotate({{.Rotate}} 50 50)"/>
+    </svg>
+    {{ end }}
+  </div>
+{{end}}

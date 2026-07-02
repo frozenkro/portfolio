@@ -18,6 +18,7 @@ body {
 
 .content-wrap {
   flex: 1;
+  display: flex;
 }
 
 a {
@@ -62,6 +63,7 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   margin-top: 10vh;
+  height: 100%;
 }
 
 .hero-content {
@@ -81,7 +83,7 @@ h1 {
   display: flex;
   flex-direction: row;
   width: fit-content;
-  margin: 0 auto;
+  margin: 5em auto;
 }
 
 .btn {
@@ -153,16 +155,53 @@ h1 {
   left: 15vw;
 }
 
+.broken-circle {
+  position: absolute;
+  /* right: -10px; */
+  /* top: 5vh; */
+}
+
+.portrait-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .portrait {
-  height: 300px;
+  height: 350px;
+  margin: auto;
 }
 
 .home-content {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
-.blob {
+.starburst {
+  clip-path: polygon(
+    50% 8%, 60% 20%, 72% 12%, 68% 28%, 86% 20%, 72% 36%,
+    96% 30%, 82% 44%, 100% 42%, 82% 50%, 98% 62%, 78% 60%,
+    92% 80%, 70% 72%, 82% 94%, 62% 80%, 70% 100%, 54% 82%,
+    48% 94%, 42% 82%, 32% 98%, 38% 72%, 14% 88%, 26% 68%,
+    4% 78%, 22% 60%, 0% 50%, 20% 44%, 6% 28%, 28% 36%,
+    16% 16%, 36% 26%, 28% 12%, 44% 20%
+  );
+
+  width: 200px;
+  aspect-ratio: 1.4;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stamp {
+  position: absolute;
+  font-family: var(--font-stamp);
+}
+
+.stamp-1 {
   width: 120px;
   height: 100px;
   background: var(--lavender);
@@ -176,50 +215,48 @@ h1 {
   align-items: center;
 }
 
-.stamp {
-  position: absolute;
-}
-
-.starburst {
+.stamp-2 {
   top: 3em;
   right: 30vw;
-  width: 200px;
-  aspect-ratio: 4;
   background: var(--hot-pink);
-  clip-path: polygon(
-    50% 0%,
-    56% 20%,
-    68% 6%,
-    70% 24%,
-    73% 20%,
-    76% 36%,
-    80% 58%,
-    64% 64%,
-    80% 80%,
-    60% 76%,
-    68% 94%,
-    56% 86%,
-    50% 100%,
-    44% 86%,
-    32% 94%,
-    40% 76%,
-    20% 80%,
-    36% 64%,
-    0% 50%,
-    36% 36%,
-    20% 20%,
-    40% 24%,
-    32% 6%,
-    44% 14%
-  );
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.wave-divider {
+.stamp-3 {
   top: 35vh;
   left: 13vw;
+  width: 8em;
+  height: 2.5em;
+  padding: 1em;
+  background: var(--turquoise);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 70%,
+    95% 74%,
+    90% 78%,
+    85% 74%,
+    80% 70%,
+    75% 66%,
+    70% 62%,
+    65% 66%,
+    60% 70%,
+    55% 74%,
+    50% 78%,
+    45% 74%,
+    40% 70%,
+    35% 66%,
+    30% 62%,
+    25% 66%,
+    20% 70%,
+    15% 74%,
+    10% 78%,
+    5% 74%,
+    0 70%
+  );
+}
+
+.stamp-4 {
+  top: 35vh;
+  right: 45vw;
   width: 8em;
   height: 2.5em;
   padding: 1em;
