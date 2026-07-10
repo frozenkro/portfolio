@@ -36,5 +36,7 @@
   --font-heading: 'Sora', sans-serif;
   --font-body: 'JetBrains Mono', monospace;
   --font-stamp: 'Bungee', sans-serif;
+
+  --stamp-margin: 10em;
 }
 

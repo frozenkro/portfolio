@@ -229,7 +229,6 @@ h1 {
 
   width: 200px;
   aspect-ratio: 1.4;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -279,8 +278,13 @@ h1 {
   align-items: center;
 }
 
+.stamp-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .stamp {
-  position: absolute;
   font-family: var(--font-stamp);
   cursor: pointer;
   animation: wobble 4s ease-in-out infinite;
@@ -295,11 +299,6 @@ h1 {
   border-radius: inherit;
 }
 
-.stamp-1 { animation-delay: 0s; }
-.stamp-2 { animation-delay: 1.2s; }
-.stamp-3 { animation-delay: 2.4s; }
-.stamp-4 { animation-delay: 3.6s; }
-
 @keyframes wobble {
   0% { transform: rotate(1.5deg); }
   50% { transform: rotate(-1.5deg); }
@@ -308,23 +307,41 @@ h1 {
 
 .stamp-1 {
   background: var(--lavender);
-  top: 26vh;
-  left: 38vw;
+  animation-delay: 0s;
+  margin-bottom: var(--stamp-margin);
 }
 
 .stamp-2 {
-  top: 3em;
-  right: 30vw;
   background: var(--hot-pink);
+  animation-delay: 1.2s; 
+  margin-top: var(--stamp-margin);
 }
 .stamp-3 {
-  top: 35vh;
-  left: 13vw;
   background: var(--turquoise);
+  animation-delay: 2.4s; 
+  margin-bottom: var(--stamp-margin);
 }
 
 .stamp-4 {
-  top: 35vh;
-  right: 45vw;
   background: var(--tangerine);
+  animation-delay: 3.6s; 
+  margin-top: var(--stamp-margin);
+}
+
+.stamp-5 {
+  background: var(--light-blue);
+  animation-delay: 0s;
+  margin-bottom: var(--stamp-margin);
+}
+
+.stamp-6 {
+  background: var(--olive);
+  animation-delay: 1.2s; 
+  margin-top: var(--stamp-margin);
+}
+
+.stamp-7 {
+  background: var(--tangerine);
+  animation-delay: 2.4s; 
+  margin-bottom: var(--stamp-margin);
 }
