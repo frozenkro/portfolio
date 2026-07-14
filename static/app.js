@@ -37,10 +37,8 @@ const initHelpIcon = () => {
   const icon = document.querySelector('.help-icon');
 
   icon.addEventListener('click', () => {
-    const tooltip = window.getComputedStyle(icon, ':after');
-    tooltip.opacity = '1';
-    tooltip.background = 'white';
-    setTimeout(() => { tooltip.opacity = '0'; }, 1000);
+    icon.classList.add('tooltip-pinned');
+    setTimeout(() => { icon.classList.remove('tooltip-pinned'); }, 1000);
   });
 };
 

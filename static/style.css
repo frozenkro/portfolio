@@ -114,7 +114,8 @@ h1 {
   pointer-events: none;
 }
 
-.help-icon:hover::after {
+.help-icon:hover::after,
+.help-icon.tooltip-pinned::after {
   opacity: 1;
   visibility: visible;
   transition: opacity 0.15s ease, visibility 0s;
@@ -126,7 +127,6 @@ h1 {
   position: relative;
   border: 2px solid black;
   border-radius: 1.5em;
-  /* display:none; */
 }
 
 /* black triangle that points right toward portrait, becomes border */
