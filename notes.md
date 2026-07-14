@@ -72,6 +72,7 @@ Include photos of physical projects!
 - dirtie-client - ui screencap
 - sqncr - ui screencap 
 - spartan-mittns - find internal photos and final photo
+- go-agent - find photo of you presenting? maybe include slideshow of presentation?
 
 Projects to list:
 - dirtie-srv (possibly list top 4 as just one item, "dirtie"
@@ -79,6 +80,7 @@ Projects to list:
 - dirtie-client
 - rpic
 - sqncr (mention how you use this for AI task management)
+- go-agent
 - fozboy
 - portfolio
 - wlblocks
