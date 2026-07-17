@@ -6,10 +6,10 @@ const initStamps = () => {
 
   let locked = null;
   const messages = {
-    'stamp-1': `Talk about architecting software into focused, testable units.`,
-    'stamp-2': `Talk about repeatable environments.`,
+    'stamp-1': `Organizing your code into focused, stateless units makes it easier to navigate, debug, and generally hack on. When the responsibilities of these modules are laid out clearly, other developers/agents will adapt to your codebase smoothly. This pattern also lends itself well to unit testing.`,
+    'stamp-2': `Talk about repeatable environments and declarative code.`,
     'stamp-3': `talk about how micro-inefficiencies scale`,
-    'stamp-4': `talk about declarative code`,
+    'stamp-4': `talk about the helpful context of understanding the other systems in your ecosystem, use dirtie ecosystem as example.`,
     'stamp-5': `talk about portable outputs (executables, bundles, etc)`,
     'stamp-6': `Talk about minimizing unnecessary abstractions`,
     'stamp-7': `Talk about minimizing dependencies and other bloat`,
