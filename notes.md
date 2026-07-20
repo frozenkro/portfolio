@@ -79,8 +79,8 @@ Projects to list:
 - dirtie-node (include link to dirtie-node-enc)
 - dirtie-client
 - rpic
-- sqncr (mention how you use this for AI task management)
 - go-agent
+- sqncr (mention how you use this for AI task management)
 - fozboy
 - portfolio
 - wlblocks
