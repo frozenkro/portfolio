@@ -6,20 +6,19 @@ const initStamps = () => {
 
   let locked = null;
   const messages = {
-    'stamp-1': `Organizing your code into focused, stateless units makes it easier to navigate, debug, and generally hack on. When the responsibilities of these modules are laid out clearly, other developers/agents will adapt to your codebase smoothly. This pattern also lends itself well to unit testing.`,
-    'stamp-2': `Talk about repeatable environments and declarative code.`,
-    'stamp-3': `talk about how micro-inefficiencies scale`,
-    'stamp-4': `talk about the helpful context of understanding the other systems in your ecosystem, use dirtie ecosystem as example.`,
-    'stamp-5': `talk about portable outputs (executables, bundles, etc)`,
-    'stamp-6': `Talk about minimizing unnecessary abstractions`,
-    'stamp-7': `Talk about minimizing dependencies and other bloat`,
+    'stamp-1': `Organizing your code into focused, stateless units makes it easier to navigate, debug, test, and generally hack on.`,
+    'stamp-2': `Whether it's your development environment, platform architecture, or application state, there is tremendous value in the ability to recreate it.`,
+    'stamp-3': `Make your applications more vertically scalable by doing less. Make them more horizontally scalable by minimizing shared resources.`,
+    'stamp-4': `Problems for end-users are rarely solved by one application alone. Understanding the entire platform of your solution helps you to optimize your performance and UX.`,
+    'stamp-5': `I try to bundle my applications with minimal external dependencies, and trim any required configuration down to only the parameters that will change between environments. This helps decouple the applications and environments.`,
+    'stamp-6': `Modules ought to state what they do clearly, but remain readable and direct under the hood as well. I try to avoid obscuring my actual logic with needless abstractions. This can be a balancing act.`,
+    'stamp-7': `"Do we really need a new dependency for this?"`,
   };
 
   closeIcon.addEventListener('click', () => {
     if (closeIcon.style.display === 'none') return;
 
     stamps.forEach(s => s.classList.remove("locked"));
-      
 
     locked = null;
     bubble.textContent = '';

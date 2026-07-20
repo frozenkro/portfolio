@@ -163,7 +163,7 @@ h1 {
 }
 
 .speech-bubble.panel {
-  width: 22vw;
+  max-width: 40vw;
   min-height: fit-content;
   position: relative;
   border: 2px solid black;

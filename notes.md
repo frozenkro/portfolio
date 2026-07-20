@@ -125,3 +125,31 @@ put like "AI AI AI AI AI..." somewhere on the page filling up a bunch of space o
 music player?
 
 button click retro sound effect
+
+---
+
+# AI
+
+## Building with AI:
+
+AI prompting has integrated into my thought process in a more interesting way than simply being able to answer arbitrarily worded questions.
+
+As I work through a problem, I am constantly thinking in terms of smaller, specific questions. 
+When I am not sure about something, I may begin typing a prompt, and one of three things will happen:
+- I type a perfectly coherent question, and the model will respond with the answer.
+- I rephrase my question until it is so simple that it answers itself.
+- I realize I do not know what I am trying to ask, and revisit my problem.
+
+This helps break down larger complex problems into smaller solvable ones, and accelerates the learning process.
+
+
+## Balancing Agentic Coding and Manual Coding
+
+Learning now requires more discipline than ever before.
+
+Knowledge is still as important as ever, particularly for requirements analysis and code reviews.
+
+I try to divide my work between intentional learning projects with more manual programming, heavily agentically engineered projects for faster results, and a happy medium for more serious projects.
+
+---
+
