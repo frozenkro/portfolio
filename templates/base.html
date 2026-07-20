@@ -12,11 +12,28 @@
     <div class="bg-glass"></div>
     {{block "spiral" .}}{{end}}
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span class="hamburger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    <span class="hamburger-close-icon" aria-label="Close menu"></span>
+  </button>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="/">Home</a>
+    <a href="/projects">Projects</a>
+    <a href="/skills">Skills</a>
+    <a href="/experience">Experience</a>
+    <a href="/contact">Contact</a>
+  </nav>
+  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
   <main class="content-wrap">
   {{block "content" .}}{{end}}
   </main>
   <footer class="footer">
     <p>© 2026 Kaleb Olson.<br/>Built with Go, plain CSS, and questionable taste.</p>
   </footer>
+  <script src="/static/nav.js"></script>
 </body>
 </html>{{end}}

@@ -27,20 +27,43 @@ a {
 
 h1 {
   font-size: 48px;
+  line-height: 48px;
 }
 
 .logo {
   font-size: var(--font-heading);
 }
 
-.navcol {
-  display: flex;
-  flex-direction: column;
+.navrow-wrap {
+  position: relative;
 }
 
-.navcol>a {
-  width: 8em;
+.navrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  /* gap: 4px; */
+}
+
+.nav-item>a {
   text-decoration: none;
+}
+
+.nav-item {
+  padding: 0 1em;
+  position: relative;
+  background: rgba(0, 0, 0, 0.05);
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#lastNavBtn {
+  border-right: none;
+}
+
+.nav-item.nav-item-active {
+  border-bottom: none;
+  background: unset;
 }
 
 .divider {
@@ -50,12 +73,13 @@ h1 {
 .content {
   width: 100%;
   max-width: 80vw;
-  margin: 0 auto;
+  margin: var(--content-margin-top) auto 0 auto;
 }
 
-.c-panel {
+.panel.c-panel {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding: 0;
 }
 
 .hero {
@@ -63,7 +87,6 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 10vh;
   height: 100%;
 }
 
@@ -170,6 +193,18 @@ h1 {
   border-radius: 1.5em;
 }
 
+/* shrink the bubble at narrower viewports (heavy zoom / mobile) to avoid
+   colliding with the title panel, since the portrait stays fixed-corner-anchored */
+@media (max-width: 1300px) {
+  .speech-bubble.panel { max-width: 32vw; }
+}
+@media (max-width: 1000px) {
+  .speech-bubble.panel { max-width: 26vw; }
+}
+@media (max-width: 700px) {
+  .speech-bubble.panel { max-width: 20vw; }
+}
+
 /* black triangle that points right toward portrait, becomes border */
 .speech-bubble.panel:before {
   content: "";
@@ -202,7 +237,7 @@ h1 {
   background-color: var(--bone);
   box-shadow: var(--shadow-sm);
   height: fit-content;
-  padding: 1em;
+  padding: var(--panel-padding);
 }
 
 .main-button-row {
@@ -356,6 +391,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 30px; /* blob is the narrowest element and doesn't always wrap the same way */
 }
 
 .quad {
@@ -375,8 +411,15 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   gap: 1em;
+  margin-top: 2em;
+}
+
+.stamp-wrap {
+  flex: 0 0 23%;
+  display: flex;
+  justify-content: center;
 }
 
 .stamp {
@@ -417,52 +460,213 @@ h1 {
 .stamp-1 {
   background: var(--lavender);
   animation-delay: 0s;
-  margin-bottom: var(--stamp-margin);
 }
 
 .stamp-2 {
   background: var(--hot-pink);
   animation-delay: 1.2s; 
-  margin-top: var(--stamp-margin);
 }
 .stamp-3 {
   background: var(--turquoise);
   animation-delay: 2.4s; 
-  margin-bottom: var(--stamp-margin);
 }
 
 .stamp-4 {
   background: var(--tangerine);
   animation-delay: 3.6s; 
-  margin-top: var(--stamp-margin);
 }
 
 .stamp-5 {
   background: var(--light-blue);
   animation-delay: 0s;
-  margin-bottom: var(--stamp-margin);
 }
 
 .stamp-6 {
   background: var(--olive);
   animation-delay: 1.2s; 
-  margin-top: var(--stamp-margin);
 }
 
 .stamp-7 {
   background: var(--tangerine);
   animation-delay: 2.4s; 
-  margin-bottom: var(--stamp-margin);
 }
 
 @media (max-width: 900px) {
+
+  .portrait {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    height: clamp(120px, 30vw, 220px);
+    z-index: 10;
+  }
+
   .portrait-container {
-    position: relative;
+    position: fixed;
     top: auto;
-    right: auto;
+    bottom: calc(2em + clamp(120px, 30vw, 220px));
+    left: 1em;
+    right: 1em;
+    display: block;
+  }
+  .speech-bubble.panel {
+    max-width: none;
+    display: none;
+  }
+  .speech-bubble.panel.visible {
+    display: block;
   }
   .hero {
     flex-wrap: wrap;
     gap: 2em;
+  }
+
+  .speech-bubble-mobilewrap {
+    display: none;
+  }
+
+  .speech-bubble.panel:before {
+    right: 1.5em;
+    top: auto;
+    bottom: -1.4em;
+    left: auto;
+    transform: none;
+    border-top: 20px solid black;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: none;
+  }
+  .speech-bubble.panel:after {
+    right: 1.5em;
+    top: auto;
+    bottom: -1em;
+    left: auto;
+    transform: none;
+    border-top: 17px solid var(--bone);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: none;
+  }
+}
+
+/* === Mobile hamburger nav (≤900px) === */
+.hamburger,
+.mobile-nav,
+.mobile-nav-overlay {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    width: 2.5em;
+    height: 2.5em;
+    padding: 0;
+    background: var(--bone);
+    border: 2px solid var(--black);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    z-index: 100;
+  }
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 1.5em;
+    height: 1.5em;
+  }
+  .hamburger-icon span {
+    display: block;
+    height: 3px;
+    background: var(--black);
+  }
+  .hamburger .hamburger-close-icon {
+    display: none;
+    position: absolute;
+    width: 1.5em;
+    height: 1.5em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .hamburger .hamburger-close-icon::before,
+  .hamburger .hamburger-close-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 3px;
+    background: var(--black);
+    transform-origin: center;
+  }
+  .hamburger .hamburger-close-icon::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .hamburger .hamburger-close-icon::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  .hamburger.open .hamburger-icon {
+    display: none;
+  }
+  .hamburger.open .hamburger-close-icon {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70vw;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--bone);
+    border-right: 2px solid var(--black);
+    box-shadow: var(--shadow-lg);
+    padding: 4em 1em 1em;
+    z-index: 99;
+    transform: translateX(calc(-100% - 10px));
+    transition: transform 0.25s ease;
+  }
+  .mobile-nav.open {
+    transform: translateX(0);
+  }
+  .mobile-nav a {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: var(--black);
+    padding: 0.75em 0.5em;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  .mobile-nav a:hover {
+    background: var(--concrete);
+  }
+
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 98;
+  }
+  .mobile-nav-overlay.open {
+    display: block;
+  }
+
+  .navrow {
+    display: none;
+  }
+
+  .content {
+    max-width: unset;
   }
 }

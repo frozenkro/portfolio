@@ -101,6 +101,13 @@ func skillsHandler(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+func experienceHandler(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "experience.html", PageData{
+		Title: "Experience",
+		Circles: getCircles(),
+	})
+}
+
 func contactHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "contact.html", PageData{
 		Title: "Contact",
@@ -135,6 +142,7 @@ func main() {
 	mux.HandleFunc("GET /", indexHandler)
 	mux.HandleFunc("GET /projects", projectsHandler)
 	mux.HandleFunc("GET /skills", skillsHandler)
+	mux.HandleFunc("GET /experience", experienceHandler)
 	mux.HandleFunc("GET /contact", contactHandler)
 
 	port := os.Getenv("PORT")

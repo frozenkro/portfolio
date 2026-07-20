@@ -37,6 +37,7 @@
   --font-body: 'JetBrains Mono', monospace;
   --font-stamp: 'Bungee', sans-serif;
 
-  --stamp-margin: 10em;
+  --content-margin-top: 10vh;
+  --panel-padding: 1em;
 }
 

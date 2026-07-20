@@ -1,8 +1,9 @@
 const initStamps = () => {
   const bubble = document.querySelector('.speech-bubble-dynamic');
+  const bubblePanel = document.querySelector('.speech-bubble.panel');
   const defaultContent = document.querySelector('.speech-bubble-default');
   const stamps = document.querySelectorAll('.stamp');
-  const closeIcon = document.querySelector('.close-icon');
+  const closeIcon = document.querySelector('.speech-bubble .close-icon');
 
   let locked = null;
   const messages = {
@@ -15,6 +16,9 @@ const initStamps = () => {
     'stamp-7': `"Do we really need a new dependency for this?"`,
   };
 
+  const showContent = () => bubblePanel.classList.add('visible');
+  const hideContent = () => bubblePanel.classList.remove('visible');
+
   closeIcon.addEventListener('click', () => {
     if (closeIcon.style.display === 'none') return;
 
@@ -24,22 +28,25 @@ const initStamps = () => {
     bubble.textContent = '';
     defaultContent.style.display = 'block';
     closeIcon.style.display = 'none';
+    hideContent();
   });
 
   stamps.forEach(stamp => {
     const key = [...stamp.classList].find(c => c.startsWith('stamp-'));
 
     stamp.addEventListener('mouseenter', () => {
-      if (!locked) {
+      if (!locked && window.matchMedia('(min-width: 901px)').matches) {
         defaultContent.style.display = 'none';
 
         bubble.textContent = messages[key];
+        showContent();
       }
     });
     stamp.addEventListener('mouseleave', () => {
-      if (!locked) {
+      if (!locked && window.matchMedia('(min-width: 901px)').matches) {
         bubble.textContent = '';
         defaultContent.style.display = 'block';
+        hideContent();
       }
     });
     stamp.addEventListener('click', () => {
@@ -50,11 +57,13 @@ const initStamps = () => {
       if (locked === key) { 
         locked = null; 
         stamp.classList.remove("locked");
+        hideContent();
       }
       else { 
         locked = key; 
         bubble.textContent = messages[key]; 
         stamp.classList.add("locked");
+        showContent();
       }
 
       if (locked) {
