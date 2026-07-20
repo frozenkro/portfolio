@@ -208,6 +208,9 @@ h1 {
 .main-button-row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
   width: fit-content;
   margin: 5em auto;
 }
@@ -370,8 +373,10 @@ h1 {
 
 .stamp-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
+  gap: 1em;
 }
 
 .stamp {
@@ -448,4 +453,16 @@ h1 {
   background: var(--tangerine);
   animation-delay: 2.4s; 
   margin-bottom: var(--stamp-margin);
+}
+
+@media (max-width: 900px) {
+  .portrait-container {
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+  .hero {
+    flex-wrap: wrap;
+    gap: 2em;
+  }
 }
