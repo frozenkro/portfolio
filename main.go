@@ -10,13 +10,15 @@ import (
 	"os"
 )
 
+var pages []Page
+
 type Project struct {
-	Title       string `json:"title"`
-	Description string `json:"description"`
+	Title       string   `json:"title"`
+	Description string   `json:"description"`
 	Tags        []string `json:"tags"`
-	URL         string `json:"url"`
-	Repo        string `json:"repo"`
-	Featured    bool   `json:"featured"`
+	URL         string   `json:"url"`
+	Repo        string   `json:"repo"`
+	Featured    bool     `json:"featured"`
 }
 
 func loadProjects() ([]Project, error) {
@@ -63,11 +65,27 @@ type PageData struct {
 	Title    string
 	Projects []Project
 	Circles  []BrokenCircle
+	NavItems []NavItem
 }
 
 type BrokenCircle struct {
 	Diameter string
-	Rotate int
+	Rotate   int
+}
+
+// Desktop specific nav items
+// only displayed on 'content' pages
+type NavItem struct {
+	Active bool
+	Last   bool
+	Route  string
+	Title  string
+}
+
+type Page struct {
+	Route   string
+	Title   string
+	Handler func(http.ResponseWriter, *http.Request)
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
@@ -78,7 +96,8 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "index.html", PageData{
 		Title:    "Home",
 		Projects: projects,
-		Circles: getCircles(),
+		Circles:  getCircles(),
+		NavItems: getNavItems("/"),
 	})
 }
 
@@ -90,47 +109,76 @@ func projectsHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "projects.html", PageData{
 		Title:    "Projects",
 		Projects: projects,
-		Circles: getCircles(),
+		Circles:  getCircles(),
+		NavItems: getNavItems("/projects"),
 	})
 }
 
 func skillsHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "skills.html", PageData{
-		Title:   "Skills",
-		Circles: getCircles(),
+		Title:    "Skills",
+		Circles:  getCircles(),
+		NavItems: getNavItems("/skills"),
 	})
 }
 
 func experienceHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "experience.html", PageData{
-		Title: "Experience",
-		Circles: getCircles(),
+		Title:    "Experience",
+		Circles:  getCircles(),
+		NavItems: getNavItems("/experience"),
 	})
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "contact.html", PageData{
-		Title: "Contact",
-		Circles: getCircles(),
+		Title:    "Contact",
+		Circles:  getCircles(),
+		NavItems: getNavItems("/contact"),
 	})
+}
+
+func initPages() []Page {
+	return []Page{
+		{Route: "/", Title: "Home", Handler: indexHandler},
+		{Route: "/projects", Title: "Projects", Handler: projectsHandler},
+		{Route: "/skills", Title: "Skills", Handler: skillsHandler},
+		{Route: "/experience", Title: "Experience", Handler: experienceHandler},
+		{Route: "/contact", Title: "Contact", Handler: contactHandler},
+	}
 }
 
 func getCircles() []BrokenCircle {
 	return []BrokenCircle{
-		{Diameter:"100",Rotate:-90},
-		{Diameter:"90",Rotate:-120},
-		{Diameter:"80",Rotate:-150},
-		{Diameter:"70",Rotate:180},
-		{Diameter:"60",Rotate:150},
-		{Diameter:"50",Rotate:120},
-		{Diameter:"40",Rotate:90},
-		{Diameter:"30",Rotate:60},
-		{Diameter:"20",Rotate:30},
-		{Diameter:"10",Rotate:0},
+		{Diameter: "100", Rotate: -90},
+		{Diameter: "90", Rotate: -120},
+		{Diameter: "80", Rotate: -150},
+		{Diameter: "70", Rotate: 180},
+		{Diameter: "60", Rotate: 150},
+		{Diameter: "50", Rotate: 120},
+		{Diameter: "40", Rotate: 90},
+		{Diameter: "30", Rotate: 60},
+		{Diameter: "20", Rotate: 30},
+		{Diameter: "10", Rotate: 0},
 	}
 }
 
+func getNavItems(route string) []NavItem {
+	navItems := []NavItem{}
+	for i, p := range pages {
+		navItems = append(navItems, NavItem{
+			Title:  p.Title,
+			Route:  p.Route,
+			Active: route == p.Route,
+			Last: i == len(pages)-1,
+		})
+	}
+	return navItems
+}
+
 func main() {
+	pages = initPages()
+
 	mux := http.NewServeMux()
 
 	staticSub, _ := fs.Sub(staticFS, "static")
@@ -139,11 +187,9 @@ func main() {
 	imagesSub, _ := fs.Sub(imageFS, "images")
 	mux.Handle("GET /images/", http.StripPrefix("/images/", http.FileServer(http.FS(imagesSub))))
 
-	mux.HandleFunc("GET /", indexHandler)
-	mux.HandleFunc("GET /projects", projectsHandler)
-	mux.HandleFunc("GET /skills", skillsHandler)
-	mux.HandleFunc("GET /experience", experienceHandler)
-	mux.HandleFunc("GET /contact", contactHandler)
+	for _, p := range pages {
+		mux.HandleFunc(fmt.Sprintf("GET %v", p.Route), p.Handler)
+	}
 
 	port := os.Getenv("PORT")
 	if port == "" {

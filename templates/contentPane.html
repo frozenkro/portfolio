@@ -2,21 +2,11 @@
   <div class="content">
     <div class="panel c-panel">
       <nav class="navrow">
-        <span class="nav-item">
-          <a href="/">Home</a>
+        {{ range .NavItems }}
+        <span {{ if .Last }}id="lastNavBtn" {{ end }}class="nav-item{{ if .Active }} nav-item-active{{ end }}">
+          <a href="{{ .Route }}">{{ .Title }}</a>
         </span>
-        <span class="nav-item nav-item-active">
-          <a href="/projects">Projects</a>
-        </span>
-        <span class="nav-item">
-          <a href="/skills">Skills</a>
-        </span>
-        <span class="nav-item">
-          <a href="/experience">Experience</a>
-        </span>
-        <span id="lastNavBtn" class="nav-item">
-          <a href="/contact">Contact</a>
-        </span>
+        {{ end }}
       </nav>
       <main>
         {{block "subContent" .}}{{end}}

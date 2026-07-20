@@ -1,4 +1,5 @@
 //go:build dev
+
 package main
 
 import (
@@ -6,7 +7,7 @@ import (
 	"os"
 )
 
-// These are all set to "." for interchangeability with assets_prd.go equivalents, 
+// These are all set to "." for interchangeability with assets_prd.go equivalents,
 // which all expect the full paths for embedded artifacts
 
 var contentFS fs.FS = os.DirFS(".")

@@ -42,7 +42,6 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  /* gap: 4px; */
 }
 
 .nav-item>a {
@@ -491,7 +490,20 @@ h1 {
   animation-delay: 2.4s; 
 }
 
+.contact-card {
+  padding: 1em;
+}
+
 @media (max-width: 900px) {
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .stamp-wrap {
+    flex: unset;
+    width: 200px;
+  }
 
   .portrait {
     position: fixed;
@@ -515,6 +527,8 @@ h1 {
   }
   .speech-bubble.panel.visible {
     display: block;
+    position: relative;
+    bottom: 4px;
   }
   .hero {
     flex-wrap: wrap;
@@ -526,7 +540,7 @@ h1 {
   }
 
   .speech-bubble.panel:before {
-    right: 1.5em;
+    right: 1.1em;
     top: auto;
     bottom: -1.4em;
     left: auto;
@@ -537,7 +551,7 @@ h1 {
     border-bottom: none;
   }
   .speech-bubble.panel:after {
-    right: 1.5em;
+    right: 1.3em;
     top: auto;
     bottom: -1em;
     left: auto;
@@ -549,7 +563,6 @@ h1 {
   }
 }
 
-/* === Mobile hamburger nav (≤900px) === */
 .hamburger,
 .mobile-nav,
 .mobile-nav-overlay {

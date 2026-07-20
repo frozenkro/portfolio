@@ -151,5 +151,3 @@ Knowledge is still as important as ever, particularly for requirements analysis 
 
 I try to divide my work between intentional learning projects with more manual programming, heavily agentically engineered projects for faster results, and a happy medium for more serious projects.
 
----
-
