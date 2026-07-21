@@ -19,6 +19,8 @@ body {
 .content-wrap {
   flex: 1;
   display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 a {
@@ -70,8 +72,7 @@ h1 {
 }
 
 .content {
-  width: 100%;
-  max-width: 80vw;
+  width: 80vw;
   margin: var(--content-margin-top) auto 0 auto;
 }
 
@@ -86,7 +87,6 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  height: 100%;
 }
 
 .hero-content {
@@ -185,7 +185,7 @@ h1 {
 }
 
 .speech-bubble.panel {
-  max-width: 40vw;
+  max-width: min(40vw, 560px);
   min-height: fit-content;
   position: relative;
   border: 2px solid black;
@@ -327,7 +327,7 @@ h1 {
 .portrait-container {
   position: fixed;
   top: 1em;
-  right: 3em;
+  right: max(3em, calc(50vw - 700px + 3em));
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -541,6 +541,9 @@ h1 {
 @media (max-width: 900px) {
 
   .hero-content {
+    width: 100%;
+  }
+  .content {
     width: 100%;
   }
 
