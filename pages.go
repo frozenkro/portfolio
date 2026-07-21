@@ -5,13 +5,6 @@ import (
 	"log"
 )
 
-type PageData struct {
-	Title    string
-	Projects []Project
-	Circles  []BrokenCircle
-	NavItems []NavItem
-}
-
 type Page struct {
 	Route   string
 	Title   string

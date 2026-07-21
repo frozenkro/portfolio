@@ -1,26 +1,66 @@
 [
-    {
-        "title": "dirtie-srv",
-        "description": "Go backend for IoT sensor data collection on Raspberry Pi k3s cluster. MQTT ingestion, TimescaleDB storage, Grafana dashboards.",
-        "tags": ["Go", "k3s", "MQTT", "IoT"],
-        "url": "",
-        "repo": "https://github.com/yourusername/dirtie-srv",
-        "featured": true
-    },
-    {
-        "title": "Project Two",
-        "description": "Short description of what this is and why it's cool. Replace this placeholder.",
-        "tags": ["Tag1", "Tag2"],
-        "url": "https://example.com",
-        "repo": "https://github.com/yourusername/project-two",
-        "featured": false
-    },
-    {
-        "title": "Project Three",
-        "description": "Another placeholder. Fill in with real project data.",
-        "tags": ["Tag1", "Tag2"],
-        "url": "",
-        "repo": "",
-        "featured": false
-    }
+  {
+    "id": 1,
+    "title": "dirtie-srv",
+    "description": "Go backend for IoT sensor provisioning and data processing. MQTT ingestion, InfluxDB + PostgreSQL storage.",
+    "tags": ["Go", "k3s", "MQTT", "Grafana", "PostgreSQL", "Docker"],
+    "repo": "https://github.com/frozenkro/dirtie-srv",
+    "details": "proj_details/dirtiesrv.html"
+  },
+  {
+    "id": 2,
+    "title": "dirtie-node",
+    "description": "Firmware for Pi Pico W that handles provisioning over WiFi, I2C sensor data, publishes to MQTT broker.",
+    "tags": ["C", "CMake", "MQTT", "TCP", "I2C"],
+    "repo": "https://github.com/frozenkro/dirtie-node",
+    "details": "proj_details/dirtienode.html"
+  },
+  {
+    "id": 3,
+    "title": "dirtie-client",
+    "description": "Android application used for provisioning and management of dirtie-node devices.",
+    "tags": ["Kotlin", "Gradle", "Ollama", "Hermes"],
+    "repo": "https://github.com/frozenkro/dirtie-client",
+    "details": "proj_details/dirtieclient.html"
+  },
+  {
+    "id": 4,
+    "title": "rpic",
+    "description": "Provisioning system for raspberry pi cluster that runs dirtie-srv and other projects",
+    "tags": ["Ansible", "Bash", "Ubuntu"],
+    "repo": "https://github.com/frozenkro/rpic",
+    "details": "proj_details/rpic.html"
+  },
+  {
+    "id": 5,
+    "title": "go-agent",
+    "description": "A barebones AI Agent harness written in Go.",
+    "tags": ["Go", "Claude", "Ollama"],
+    "repo": "https://github.com/frozenkro/go-agent",
+    "details": "proj_details/goagent.html"
+  },
+  {
+    "id": 6,
+    "title": "sqncr",
+    "description": "A task management MCP Server + TUI application.",
+    "tags": ["Go", "Bubbletea", "MCP"],
+    "repo": "https://github.com/frozenkro/sqncr",
+    "details": "proj_details/sqncr.html"
+  },
+  {
+    "id": 7,
+    "title": "wlblocks",
+    "description": "A basic wayland client with some fundamental rendering functionality.",
+    "tags": ["Zig", "wayland"],
+    "repo": "https://github.com/frozenkro/wlblocks",
+    "details": "proj_details/wlblocks.html"
+  },
+  {
+    "id": 8,
+    "title": "spartan-mittns",
+    "description": "A handwired, 3d printed keyboard programmed with QMK.",
+    "tags": ["QMK"],
+    "repo": "https://github.com/frozenkro/qmk_firmware/tree/spartan-mittns/keyboards/spartan_mittns",
+    "details": "proj_details/spartanmittns.html"
+  }
 ]

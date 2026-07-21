@@ -8,6 +8,14 @@ import (
 
 /* == Types == */
 
+type PageData struct {
+	Title    string
+	Projects []Project
+	Circles  []BrokenCircle
+	NavItems []NavItem
+	EntityId int
+}
+
 type BrokenCircle struct {
 	Diameter string
 	Rotate   int
@@ -26,9 +34,8 @@ type Project struct {
 	Title       string   `json:"title"`
 	Description string   `json:"description"`
 	Tags        []string `json:"tags"`
-	URL         string   `json:"url"`
 	Repo        string   `json:"repo"`
-	Featured    bool     `json:"featured"`
+	Details     string   `json:"details"`
 }
 
 /* == End Types == */

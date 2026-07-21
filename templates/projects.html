@@ -1,21 +1,18 @@
 {{define "subContent"}}
-<section class="contact-header">
-    <h1 class="page-title">PROJECTS</h1>
-    <p class="page-subtitle">things I've built.</p>
+<section class="subcontent-header">
+  <h1 class="page-title">PROJECTS</h1>
+  <p class="page-subtitle">things I've built.</p>
 </section>
 
-<div class="contact-grid">
-    <div class="contact-card">
-        <h3>LOREM IPSUM</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<div class="subcontent-grid">
+  {{ range .Projects }}
+    <div class="subcontent-card">
+      <h3>{{ .Title }}</h3>
+      <p>{{ .Description }}</p>
+      {{ range .Tags }}
+      <span>{{ . }}</span>
+      {{ end }}
     </div>
-    <div class="contact-card">
-        <h3>DOLOR SIT AMET</h3>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-    <div class="contact-card">
-        <h3>CONSECTETUR</h3>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    </div>
+  {{ end }}
 </div>
 {{end}}
