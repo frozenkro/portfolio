@@ -1,19 +1,20 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/fs"
-	"encoding/json"
 )
 
 /* == Types == */
 
 type PageData struct {
-	Title    string
-	Projects []Project
-	Circles  []BrokenCircle
-	NavItems []NavItem
-	EntityId int
+	Title          string
+	Projects       []Project
+	Circles        []BrokenCircle
+	NavItems       []NavItem
+	EntityId       int
+	ShowIcons8Link bool
 }
 
 type BrokenCircle struct {
@@ -59,7 +60,6 @@ type Project struct {
 }
 
 /* == End Types == */
-
 
 /* == Conststs == */
 
@@ -111,7 +111,7 @@ func getNavItems(route string) []NavItem {
 			Title:  p.Title,
 			Route:  p.Route,
 			Active: route == p.Route,
-			Last: i == len(pages)-1,
+			Last:   i == len(pages)-1,
 		})
 	}
 	return navItems
@@ -129,6 +129,5 @@ func loadProjects() ([]Project, error) {
 
 	return projects, nil
 }
-
 
 /* == End Helper Funcs == */

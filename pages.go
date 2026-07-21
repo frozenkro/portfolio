@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 	"log"
+	"net/http"
 )
 
 type Page struct {
@@ -48,11 +48,12 @@ func projectsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	renderTemplate(w, "projects.html", PageData{
-		Title:    "Projects",
-		Projects: projects,
-		Circles:  getCircles(),
-		NavItems: getNavItems("/projects"),
-		EntityId: entityId,
+		Title:          "Projects",
+		Projects:       projects,
+		Circles:        getCircles(),
+		NavItems:       getNavItems("/projects"),
+		EntityId:       entityId,
+		ShowIcons8Link: true,
 	}, extraTemplates...)
 }
 
