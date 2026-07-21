@@ -494,6 +494,50 @@ h1 {
   padding: 1em;
 }
 
+.subcontent-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.subcontent-card {
+  width: 400px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.subcontent-card.project-card.btn {
+  font-family: var(--font-body);
+}
+
+.project-card-cont>p {
+  font-size: .8em;
+}
+
+.tag-icon {
+  height: 1.5em;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  border: 1px solid var(--concrete-dark);
+  padding: 0.2em 0.6em;
+  margin: 0.2em;
+  font-size: 0.85em;
+  line-height: 1.4;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 @media (max-width: 900px) {
 
   .hero-content {

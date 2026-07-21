@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"log"
 )
@@ -29,12 +30,30 @@ func projectsHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Printf("load projects: %v", err)
 	}
+
+	entityId := 0
+	var extraTemplates []string
+
+	if idStr := r.URL.Query().Get("id"); idStr != "" {
+		var id int
+		if _, perr := fmt.Sscanf(idStr, "%d", &id); perr == nil {
+			for _, p := range projects {
+				if p.Id == id {
+					entityId = id
+					extraTemplates = append(extraTemplates, p.Details)
+					break
+				}
+			}
+		}
+	}
+
 	renderTemplate(w, "projects.html", PageData{
 		Title:    "Projects",
 		Projects: projects,
 		Circles:  getCircles(),
 		NavItems: getNavItems("/projects"),
-	})
+		EntityId: entityId,
+	}, extraTemplates...)
 }
 
 func skillsHandler(w http.ResponseWriter, r *http.Request) {

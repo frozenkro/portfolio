@@ -19,7 +19,7 @@
     "id": 3,
     "title": "dirtie-client",
     "description": "Android application used for provisioning and management of dirtie-node devices.",
-    "tags": ["Kotlin", "Gradle", "Ollama", "Hermes"],
+    "tags": ["Kotlin", "Android", "Ollama"],
     "repo": "https://github.com/frozenkro/dirtie-client",
     "details": "proj_details/dirtieclient.html"
   },

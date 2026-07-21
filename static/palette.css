@@ -19,8 +19,9 @@
   --slate-deep-trs: #1F223399;
 
   /* NEUTRAL SUPPORT */
-  --concrete:   #D9D6CF;
-  --olive:      #9DA87D;
+  --concrete:      #D9D6CF;
+  --concrete-dark: #C4C1BA;
+  --olive:         #9DA87D;
   --frosted-glass: rgba(255,255,255,0.35);
 
   /* SHADOWS */

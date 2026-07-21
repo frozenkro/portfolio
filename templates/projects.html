@@ -4,15 +4,25 @@
   <p class="page-subtitle">things I've built.</p>
 </section>
 
-<div class="subcontent-grid">
-  {{ range .Projects }}
-    <div class="subcontent-card">
-      <h3>{{ .Title }}</h3>
-      <p>{{ .Description }}</p>
-      {{ range .Tags }}
-      <span>{{ . }}</span>
-      {{ end }}
-    </div>
-  {{ end }}
-</div>
+  {{ if (eq .EntityId 0) }}
+
+  <div class="subcontent-grid">
+    {{ range .Projects }}
+    <a href="/projects?id={{.Id}}" class="subcontent-card project-card btn">
+        <div class="project-card-cont">
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Description }}</p>
+        </div>
+        <div class="project-tags">
+          {{- range .Tags }}{{ if .Src }}<span class="tag"><img class="tag-icon" src="{{ .Src }}" alt="{{ .Alt }}" /></span>{{ else }}<span class="tag">{{ .Name }}</span>{{ end }}{{ end }}
+        </div>
+      </a>
+    {{ end }}
+  </div>
+
+  {{ else }}
+
+  {{ block "projectContent" . }}{{ end }}
+
+  {{end}}
 {{end}}

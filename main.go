@@ -19,7 +19,7 @@ func getTemplateFS() fs.FS {
 	return sub
 }
 
-func renderTemplate(w http.ResponseWriter, name string, data interface{}) {
+func renderTemplate(w http.ResponseWriter, name string, data interface{}, extraTemplates ...string) {
 	tmplFS := getTemplateFS()
 	tmpl := template.New("base.html")
 	var err error
@@ -27,7 +27,9 @@ func renderTemplate(w http.ResponseWriter, name string, data interface{}) {
 	if name == "index.html" {
 		tmpl, err = tmpl.ParseFS(tmplFS, "base.html", "spiral.html", name)
 	} else {
-		tmpl, err = tmpl.ParseFS(tmplFS, "base.html", "spiral.html", "contentPane.html", name)
+		files := []string{"base.html", "spiral.html", "contentPane.html", name}
+		files = append(files, extraTemplates...)
+		tmpl, err = tmpl.ParseFS(tmplFS, files...)
 	}
 	if err != nil {
 		http.Error(w, "template parse error", http.StatusInternalServerError)
