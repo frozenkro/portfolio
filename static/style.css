@@ -494,6 +494,112 @@ h1 {
   padding: 1em;
 }
 
+/* ===== EXPERIENCE PAGE ===== */
+
+.exp-header {
+  margin-bottom: 1.5em;
+}
+
+.exp-title {
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.exp-subtitle {
+  font-size: 0.9em;
+  color: var(--slate-deep);
+  margin-top: 0.3em;
+}
+
+.exp-summary {
+  margin-bottom: 2em;
+  font-size: 0.9em;
+}
+
+.exp-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.exp-card {
+  padding: 1.2em;
+}
+
+.exp-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.exp-role {
+  font-family: var(--font-heading);
+  font-size: 1.15em;
+  line-height: 1.3;
+}
+
+.exp-date {
+  font-family: var(--font-body);
+  font-size: 0.8em;
+  color: var(--slate-deep);
+  white-space: nowrap;
+}
+
+.exp-company {
+  font-family: var(--font-body);
+  font-size: 0.85em;
+  color: var(--slate-deep);
+  margin: 0.3em 0 0.8em 0;
+}
+
+.exp-bullets {
+  list-style: none;
+  padding: 0;
+}
+
+.exp-bullets li {
+  font-size: 0.85em;
+  line-height: 1.6;
+  padding-left: 1.2em;
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.exp-bullets li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--tangerine);
+  font-weight: bold;
+}
+
+.exp-section {
+  margin-top: 2.5em;
+}
+
+.exp-section-title {
+  font-family: var(--font-heading);
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  letter-spacing: 0.02em;
+}
+
+.exp-edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5em;
+}
+
+@media (max-width: 900px) {
+  .exp-card-header {
+    flex-direction: column;
+    gap: 0.2em;
+  }
+}
+
 .subcontent-grid {
   display: flex;
   flex-direction: row;
@@ -530,6 +636,65 @@ h1 {
   margin: 0.2em;
   font-size: 0.85em;
   line-height: 1.4;
+}
+
+/* ===== SKILLS PAGE ===== */
+
+.subcontent-header {
+  margin-bottom: 1.5em;
+}
+
+.skills-featured {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5em;
+  margin-bottom: 2.5em;
+}
+
+.skill-featured-card {
+  padding: 1.2em;
+}
+
+.skill-featured-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-bottom: 0.5em;
+}
+
+.skill-featured-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1em;
+}
+
+.skill-featured-card p {
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+.skills-categorized {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.skill-cat-section {
+  padding: 1em 0;
+}
+
+.skill-cat-title {
+  font-family: var(--font-heading);
+  font-size: 1.25em;
+  margin-bottom: 0.8em;
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid var(--concrete);
+  letter-spacing: 0.02em;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em;
 }
 
 .project-card {

@@ -1,0 +1,84 @@
+[
+  {
+    "name": "Go",
+    "cat": "backendWeb",
+    "featured": true,
+    "description": "Go is the comfiest language for me. I have a few more hours in C# or TS, but I find that the less expressive nature of Go helps me spend more time thinking about the problem space."
+  },
+  {
+    "name": "tmux", 
+    "cat": "agenticAI", 
+    "featured": true, 
+    "description": "An absolutely essential tool for anyone with ADHD. Daily driver for managing multiple AI agents, simultaneously working on different project, running services in the background, and scripting everything. I live inside tmux."
+  },
+  {
+    "name": "Ollama", 
+    "cat": "agenticAI", 
+    "featured": true, 
+    "description": "Ollama is more than just self hosting open models. It enables me to remain provider-agnostic between my LLM, Inference, and Agent Harness. At time of writing, I am opting for cloud-hosted GLM 5.2 with Hermes, and you probably should too."
+  },
+  {
+    "name": "AWS",
+    "cat": "devops",
+    "featured": true,
+    "description": "Hard to avoid it! Primarily worked with IAM, SQS, DynamoDB, Lambda, S3, EC2, Parameter Store. Have built a Terraform codegen library for consistent infrastructure definitions across teams."
+  },
+  {
+    "name": "MCP",
+    "cat": "agenticAI",
+    "featured": true,
+    "description": "While MCP can eat up a lot of context, any open standard is going to come with some bloat. The trade-off is a free and open ecosystem of tooling for the agentic era."
+  },
+  {
+    "name": "C#/.NET",
+    "cat": "backendWeb",
+    "featured": false,
+    "description": ""
+  },
+  {"name": "Typescript/Node", "cat": "backendWeb", "featured": false, "description": ""},
+  {"name": "SQL (Postgres, MS SQL, SQLite)", "cat": "backendWeb", "featured": false, "description": ""},
+  {"name": "NoSQL (DynamoDB, ElasticSearch)", "cat": "backendWeb", "featured": false, "description": ""},
+  {"name": "Nuget", "cat": "backendWeb", "featured": false, "description": ""},
+  {"name": "Redis", "cat": "backendWeb", "featured": false, "description": ""},
+  {"name": "MQTT", "cat": "backendWeb", "featured": false, "description": ""},
+  {"name": "sqlc", "cat": "backendWeb", "featured": false, "description": ""},
+  {"name": "Terraform", "cat": "devops", "featured": false, "description": ""},
+  {"name": "Docker", "cat": "devops", "featured": false, "description": ""},
+  {"name": "k3s", "cat": "devops", "featured": false, "description": ""},
+  {"name": "Ansible", "cat": "devops", "featured": false, "description": ""},
+  {"name": "Bash", "cat": "devops", "featured": false, "description": ""},
+  {"name": "Linux", "cat": "devops", "featured": false, "description": ""},
+  {"name": "Git", "cat": "devops", "featured": false, "description": ""},
+  {"name": "Ubuntu", "cat": "devops", "featured": false, "description": ""},
+  {"name": "GitHub Actions", "cat": "devops", "featured": false, "description": ""},
+  {"name": "Sonarcloud", "cat": "devops", "featured": false, "description": ""},
+  {"name": "NewRelic", "cat": "devops", "featured": false, "description": ""},
+  {"name": "Grafana", "cat": "devops", "featured": false, "description": ""},
+  {"name": "InfluxDB", "cat": "devops", "featured": false, "description": ""},
+  {"name": "Mosquitto", "cat": "devops", "featured": false, "description": ""},
+  {"name": "Loki", "cat": "devops", "featured": false, "description": ""},
+  {"name": "Claude Code", "cat": "agenticAI", "featured": false, "description": ""},
+  {"name": "Hermes", "cat": "agenticAI", "featured": false, "description": ""},
+  {"name": "Opencode", "cat": "agenticAI", "featured": false, "description": ""},
+  {"name": "Neovim", "cat": "agenticAI", "featured": false, "description": ""},
+  {"name": "Delve", "cat": "agenticAI", "featured": false, "description": ""},
+  {"name": "C", "cat": "embedded", "featured": false, "description": ""},
+  {"name": "CMake", "cat": "embedded", "featured": false, "description": ""},
+  {"name": "GDB", "cat": "embedded", "featured": false, "description": ""},
+  {"name": "I2C", "cat": "embedded", "featured": false, "description": ""},
+  {"name": "Zig", "cat": "embedded", "featured": false, "description": ""},
+  {"name": "TCP", "cat": "embedded", "featured": false, "description": ""},
+  {
+    "name": "Angular",
+    "cat": "frontendWeb",
+    "featured": false,
+    "description": ""
+  },
+  {"name": "React", "cat": "frontendWeb", "featured": false, "description": ""},
+  {"name": "Go templates", "cat": "frontendWeb", "featured": false, "description": ""},
+  {"name": "Webpack", "cat": "frontendWeb", "featured": false, "description": ""},
+  {"name": "AngularJS", "cat": "wishIKnewLess", "featured": false, "description": ""},
+  {"name": "Gulp", "cat": "wishIKnewLess", "featured": false, "description": ""},
+  {"name": "IIS", "cat": "wishIKnewLess", "featured": false, "description": ""},
+  {"name": ".NET Framework", "cat": "wishIKnewLess", "featured": false, "description": ""}
+]

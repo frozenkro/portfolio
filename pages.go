@@ -32,6 +32,7 @@ func projectsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	entityId := 0
+	var project Project
 	var extraTemplates []string
 
 	if idStr := r.URL.Query().Get("id"); idStr != "" {
@@ -40,6 +41,7 @@ func projectsHandler(w http.ResponseWriter, r *http.Request) {
 			for _, p := range projects {
 				if p.Id == id {
 					entityId = id
+					project = p
 					extraTemplates = append(extraTemplates, p.Details)
 					break
 				}
@@ -50,6 +52,7 @@ func projectsHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "projects.html", PageData{
 		Title:          "Projects",
 		Projects:       projects,
+		Project:        project,
 		Circles:        getCircles(),
 		NavItems:       getNavItems("/projects"),
 		EntityId:       entityId,
@@ -58,10 +61,18 @@ func projectsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func skillsHandler(w http.ResponseWriter, r *http.Request) {
+	skills, err := loadSkills()
+	if err != nil {
+		log.Printf("load skills: %v", err)
+	}
+	featured, groups := groupSkills(skills)
 	renderTemplate(w, "skills.html", PageData{
-		Title:    "Skills",
-		Circles:  getCircles(),
-		NavItems: getNavItems("/skills"),
+		Title:          "Skills",
+		Circles:        getCircles(),
+		NavItems:       getNavItems("/skills"),
+		FeaturedSkills: featured,
+		SkillGroups:    groups,
+		ShowIcons8Link: true,
 	})
 }
 

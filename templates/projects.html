@@ -1,10 +1,10 @@
 {{define "subContent"}}
-<section class="subcontent-header">
-  <h1 class="page-title">PROJECTS</h1>
-  <p class="page-subtitle">things I've built.</p>
-</section>
-
   {{ if (eq .EntityId 0) }}
+
+  <section class="subcontent-header">
+    <h1 class="page-title">PROJECTS</h1>
+    <p class="page-subtitle">things I've built.</p>
+  </section>
 
   <div class="subcontent-grid">
     {{ range .Projects }}
@@ -22,6 +22,10 @@
 
   {{ else }}
 
+  <section class="subcontent-header">
+    <h1 class="page-title">{{ .Project.Title }}</h1>
+    {{ range .Project.Tags }}{{ if .Src }}<span class="tag"><img class="tag-icon" src="{{ .Src }}" alt="{{ .Alt }}" /></span>{{ else }}<span class="tag">{{ .Name }}</span>{{ end }}{{ end }}
+  </section>
   {{ block "projectContent" . }}{{ end }}
 
   {{end}}

@@ -1,21 +1,31 @@
 {{define "subContent"}}
-<section class="contact-header">
+<section class="subcontent-header">
     <h1 class="page-title">SKILLS</h1>
-    <p class="page-subtitle">what I work with.</p>
+    <p class="page-subtitle">stuff I've worked with.</p>
 </section>
 
-<div class="contact-grid">
-    <div class="contact-card">
-        <h3>LANGUAGES</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+{{ if .FeaturedSkills }}
+<div class="skills-featured">
+    {{ range .FeaturedSkills }}
+    <div class="skill-featured-card panel">
+        <div class="skill-featured-header">
+            {{ if .Src }}<img class="tag-icon" src="{{ .Src }}" alt="{{ .Alt }}" />{{ end }}
+            <h3>{{ .Name }}</h3>
+        </div>
+        <p>{{ .Description }}</p>
     </div>
-    <div class="contact-card">
-        <h3>TOOLS</h3>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    {{ end }}
+</div>
+{{ end }}
+
+<div class="skills-categorized">
+    {{ range .SkillGroups }}
+    <div class="skill-cat-section">
+        <h2 class="skill-cat-title">{{ .Category }}</h2>
+        <div class="skill-tags">
+          {{ range .Skills }}{{ if .Src }}<span class="tag"><img class="tag-icon" src="{{ .Src }}" alt="{{ .Alt }}" />{{ if not .NameIcon }} {{ .Name }}{{ end }}</span>{{ else }}<span class="tag">{{ .Name }}</span>{{ end }}{{ end }}
+        </div>
     </div>
-    <div class="contact-card">
-        <h3>PLATFORMS</h3>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    </div>
+    {{ end }}
 </div>
 {{end}}
