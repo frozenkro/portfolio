@@ -9,7 +9,7 @@
     "name": "tmux", 
     "cat": "agenticAI", 
     "featured": true, 
-    "description": "An absolutely essential tool for anyone with ADHD. Daily driver for managing multiple AI agents, simultaneously working on different project, running services in the background, and scripting everything. I live inside tmux."
+    "description": "An absolutely essential tool for anyone with ADHD. Daily driver for managing multiple AI agents, simultaneously working on different projects, running services in the background, and scripting everything. I live inside tmux."
   },
   {
     "name": "Ollama", 

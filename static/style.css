@@ -16,6 +16,10 @@ body {
   flex-direction: column;
 }
 
+.footer {
+  margin: 5px;
+}
+
 .content-wrap {
   flex: 1;
   display: flex;

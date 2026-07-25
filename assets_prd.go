@@ -6,7 +6,7 @@ import (
 	"embed"
 )
 
-//go:embed content/projects.json
+//go:embed all:content
 var contentFS embed.FS
 
 //go:embed all:static
