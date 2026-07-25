@@ -24,6 +24,6 @@ output "route53_nameservers" {
 }
 
 output "site_url" {
-  description = "URL to access the site (domain if configured, otherwise EIP)"
-  value       = var.domain_name != "" ? "http://${var.domain_name}" : "http://${aws_eip.web.public_ip}"
+  description = "URL to access the site (https://domain if configured, otherwise http://EIP)"
+  value       = var.domain_name != "" ? "https://${var.domain_name}" : "http://${aws_eip.web.public_ip}"
 }

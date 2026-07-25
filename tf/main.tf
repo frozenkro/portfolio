@@ -164,6 +164,8 @@ locals {
     s3_object_key = var.s3_object_key
     app_name      = var.app_name
     app_port      = "8080"
+    domain_name   = var.domain_name
+    aws_region    = var.aws_region
   })
 }
 
@@ -189,7 +191,7 @@ resource "aws_eip_association" "web" {
   allocation_id = aws_eip.web.id
 }
 
-# ─── Route53 (optional — only if domain_name is set) ──────────────────────────
+# ─── Route53 ──────────────────────────
 
 resource "aws_route53_zone" "primary" {
   count   = var.domain_name != "" ? 1 : 0
