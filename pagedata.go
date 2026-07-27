@@ -11,10 +11,8 @@ import (
 type PageData struct {
 	Title          string
 	Projects       []Project
-	Project        Project
 	Circles        []BrokenCircle
 	NavItems       []NavItem
-	EntityId       int
 	ShowIcons8Link bool
 	FeaturedSkills []Skill
 	SkillGroups    []SkillGroup
@@ -61,7 +59,6 @@ type Project struct {
 	Description string `json:"description"`
 	Tags        []Tag  `json:"tags"`
 	Repo        string `json:"repo"`
-	Details     string `json:"details"`
 }
 
 type Skill struct {

@@ -1,6 +1,4 @@
 {{define "subContent"}}
-  {{ if (eq .EntityId 0) }}
-
   <section class="subcontent-header">
     <h1 class="page-title">PROJECTS</h1>
     <p class="page-subtitle">things I've built.</p>
@@ -8,7 +6,7 @@
 
   <div class="subcontent-grid">
     {{ range .Projects }}
-    <a href="/projects?id={{.Id}}" class="subcontent-card project-card btn">
+    <a href="{{ .Repo }}" target="_blank" rel="noopener noreferrer" class="subcontent-card project-card btn">
         <div class="project-card-cont">
           <h3>{{ .Title }}</h3>
           <p>{{ .Description }}</p>
@@ -19,14 +17,4 @@
       </a>
     {{ end }}
   </div>
-
-  {{ else }}
-
-  <section class="subcontent-header">
-    <h1 class="page-title">{{ .Project.Title }}</h1>
-    {{ range .Project.Tags }}{{ if .Src }}<span class="tag"><img class="tag-icon" src="{{ .Src }}" alt="{{ .Alt }}" /></span>{{ else }}<span class="tag">{{ .Name }}</span>{{ end }}{{ end }}
-  </section>
-  {{ block "projectContent" . }}{{ end }}
-
-  {{end}}
 {{end}}
