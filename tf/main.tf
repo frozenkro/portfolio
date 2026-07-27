@@ -104,6 +104,40 @@ resource "aws_iam_instance_profile" "instance_profile" {
   role = aws_iam_role.instance_role.id
 }
 
+# ─── IAM: GHA user for uploading binary to S3 ──────────────────────────────────
+
+resource "aws_iam_user" "gha" {
+  name = "${var.app_name}-gha"
+  tags = {
+    Project = var.app_name
+  }
+}
+
+data "aws_iam_policy_document" "s3_write" {
+  statement {
+    actions = [
+      "s3:PutObject",
+      "s3:AbortMultipartUpload",
+    ]
+    resources = ["${aws_s3_bucket.app_binary.arn}/*"]
+  }
+
+  statement {
+    actions   = ["s3:ListBucket"]
+    resources = [aws_s3_bucket.app_binary.arn]
+  }
+}
+
+resource "aws_iam_user_policy" "gha_s3_write" {
+  name   = "${var.app_name}-s3-write"
+  user   = aws_iam_user.gha.name
+  policy = data.aws_iam_policy_document.s3_write.json
+}
+
+resource "aws_iam_access_key" "gha" {
+  user = aws_iam_user.gha.name
+}
+
 # ─── SSH key pair ─────────────────────────────────────────────────────────────
 
 resource "aws_key_pair" "web" {

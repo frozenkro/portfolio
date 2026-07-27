@@ -27,3 +27,15 @@ output "site_url" {
   description = "URL to access the site (https://domain if configured, otherwise http://EIP)"
   value       = var.domain_name != "" ? "https://${var.domain_name}" : "http://${aws_eip.web.public_ip}"
 }
+
+output "gha_iam_access_key_id" {
+  description = "Access key ID for the GHA S3 upload user — store as a GitHub secret (e.g. AWS_ACCESS_KEY_ID)"
+  value       = aws_iam_access_key.gha.id
+  sensitive   = true
+}
+
+output "gha_iam_secret_access_key" {
+  description = "Secret access key for the GHA S3 upload user — store as a GitHub secret (e.g. AWS_SECRET_ACCESS_KEY)"
+  value       = aws_iam_access_key.gha.secret
+  sensitive   = true
+}
