@@ -8,9 +8,11 @@ jobs:
   build-and-upload:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # actions/checkout v5.1.0
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
 
-      - uses: actions/setup-go@v5
+      # actions/setup-go v5.6.0
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff
         with:
           go-version: "1.23"
 
@@ -18,7 +20,8 @@ jobs:
         run: |
           CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o portfolio -ldflags="-s -w" .
 
-      - uses: aws-actions/configure-aws-credentials@v4
+      # aws-actions/configure-aws-credentials v5.1.1
+      - uses: aws-actions/configure-aws-credentials@61815dcd50bd041e203e49132bacad1fd04d2708
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -27,3 +30,12 @@ jobs:
       - name: Upload to S3
         run: |
           aws s3 cp portfolio "s3://${{ vars.S3_BUCKET_NAME }}/portfolio"
+
+      # appleboy/ssh-action v1.2.5
+      - name: Restart service on EC2
+        uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2
+        with:
+          host: ${{ vars.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          script: sudo systemctl restart portfolio
